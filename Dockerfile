@@ -4,11 +4,11 @@ FROM node:16.13.1
 WORKDIR /usr/src/app
 
 # Copy semua file package.json ke dalam directori nodeapp di container
-COPY package*.json ./
+COPY package.json /usr/src/app/
 
 RUN npm install
 
-COPY . .
+COPY . /usr/src/app/
 
 EXPOSE 8080
 
