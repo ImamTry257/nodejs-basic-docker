@@ -1,15 +1,13 @@
-FROM node:16.13.1
+FROM node:16-alpine
 
 # Buat nodejs App Directori pada Container
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # Copy semua file package.json ke dalam directori nodeapp di container
-COPY package.json /usr/src/app/
+COPY package* .
 
 RUN npm install
 
-COPY . /usr/src/app/
+COPY . .
 
-EXPOSE 8082
-
-CMD ["node", "index.js"]
+CMD ["npm", "run", "dev"]
